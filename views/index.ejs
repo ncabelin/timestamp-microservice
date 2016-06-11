@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Timestamp Microservice</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <style>
+      body {
+          font-family: 'arial', 'sans-serif';
+      }
+      h1 {
+          font-family: 'times new roman', 'serif';
+      }
+  </style>
+</head>
+<body>
+  <h1>Timestamp Microservice</h1>
+  <h4>Generate the Unix value or Natural Date :</h4>
+    <label for="timestamp">Date</label>
+    <input type="text" id="timestamp" />
+    <br />
+    <br>
+    <button id="submit">Submit</button>
+    <br />
+    <p>
+      Enter date : ex. January 1, 2016 or Unix number
+    </p>
+    <ul>
+        <li>https://time-stamp-micro-ncabelin.c9users.io/12348900</li>
+        <li>https://timestamp-ms.herokuapp.com/December%2015,%202015</li>
+    </ul>
+</body>
+<script>
+$(document).ready(function() {
+  $('#submit').click(function() {
+    var timestamp = $('#timestamp').val();
+    var url = '/' + timestamp;
+    $.get(url, function(data, status) {
+      var dataText = JSON.stringify(data);
+      alert(dataText + ' : ' + status);
+    });
+  });
+});
+</script>
+</html>
